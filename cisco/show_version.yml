@@ -5,8 +5,6 @@
   tasks:
     - name: run show version
       ios_facts:
-    - name: configure top level configuration
-      ios_config:
       lines: hostname {{ inventory_hostname }}
     - debug:
         var: ansible_net_version
