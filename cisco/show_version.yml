@@ -1,9 +1,7 @@
 ---
-- hosts: cisco
-  connection: network_cli
+- connection: network_cli
   gather_facts: False
   tasks:
     - name: run show version
-      nxos_facts:
     - debug:
         var: ansible_net_version
