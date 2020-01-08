@@ -1,7 +1,12 @@
 ---
-- connection: network_cli
+- hosts: 192.168.1.198
+  connection: network_cli
   gather_facts: False
   tasks:
     - name: run show version
+      ios_facts:
+    - name: configure top level configuration
+      ios_config:
+      lines: hostname {{ inventory_hostname }}
     - debug:
         var: ansible_net_version
