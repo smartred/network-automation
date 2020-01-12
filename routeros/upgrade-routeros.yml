@@ -19,7 +19,8 @@
 
   - debug:
       var: download
-  #- name: Reboot the router is the download is successful
-  #  routeros_command:
-  #    commands: /system reboot
-  #  register: reboot
+  
+  - name: Reboot the router is the download is successful
+    routeros_command:
+      commands: /system reboot
+    register: reboot
