@@ -1,0 +1,25 @@
+---
+- name: Mikrotik Update
+  hosts: routeros
+  gather_facts: no
+  connection: network_cli
+  tasks:
+  - name: run check-for-updates
+    routeros_command:
+      commands: /system package update check-for-updates
+    register: updatecheck
+
+  - debug:
+      var: updatecheck
+
+  - name: Run updates and reboot (if needed)
+    routeros_command:
+      commands: /system package update download
+    register: download
+
+  - debug:
+      var: download
+  #- name: Reboot the router is the download is successful
+  #  routeros_command:
+  #    commands: /system reboot
+  #  register: reboot
