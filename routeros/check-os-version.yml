@@ -1,14 +1,14 @@
 ---
-- name: "Check OS version"
+- name: Check OS version
   hosts: routeros
   gather_facts: no
-  
+
   connection: network_cli
   tasks:
-    - name: check OS version on device routeros
-     routeros_command:
+  - name: check OS version on device routeros
+    routeros_command:
       commands: /system package print
     register: version_output
-   
-    - debug:
+
+  - debug:
       var: version_output
