@@ -13,17 +13,14 @@
   - debug:
       var: version_output
 
-  tasks:
   - name: Set timezone to Auckland
     routeros_command:
       commands: /system clock set time-zone-name=Pacific/Auckland
 
-  tasks:
   - name: Set allow remote DNS to false
     routeros_command:
       commands: /ip dns set allow-remote-requests=no
 
-  tasks:
   - name: Set ip socks to disable
     routeros_command:
       commands: /ip socks set enabled=no
